@@ -80,3 +80,5 @@ C:\Users\Acer\source\repos\ASPNetMVC\ASPNetMVC\bin\EntityFramework.dll
 C:\Users\Acer\source\repos\ASPNetMVC\ASPNetMVC\bin\EntityFramework.SqlServer.dll
 C:\Users\Acer\source\repos\ASPNetMVC\ASPNetMVC\bin\EntityFramework.xml
 C:\Users\Acer\source\repos\ASPNetMVC\ASPNetMVC\bin\EntityFramework.SqlServer.xml
+C:\Users\Acer\source\repos\ASPNetMVC\ASPNetMVC\obj\Debug\ASPNetMVC.Migrations.SecondMigrations.resources
+C:\Users\Acer\source\repos\ASPNetMVC\ASPNetMVC\obj\Debug\ASPNetMVC.csproj.GenerateResource.cache
