@@ -10,7 +10,14 @@ namespace ASPNetMVC.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            if (Session["Id"] != null)
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Login", "Accounts", new { area = "" });
+            }
         }
 
         public ActionResult About()

@@ -11,11 +11,18 @@ namespace ASPNetMVC.Controllers
 {
     public class EmployeesController : Controller
     {
-        // GET: Employees
         private MyContext myContext = new MyContext();
+        // GET: Employees
         public ActionResult Index()
         {
-            return View(myContext.Employees.ToList());
+            if (Session["Id"] != null)
+            {
+                return View(myContext.Employees.ToList());
+            }
+            else
+            {
+                return RedirectToAction("Login", "Accounts", new { area = "" });
+            }
         }
 
         public ActionResult Details(int Id)
@@ -25,7 +32,9 @@ namespace ASPNetMVC.Controllers
 
         public ActionResult Create()
         {
-            return View();
+            List<Division> list = myContext.Divisions.ToList();
+            ViewBag.DivisionList = new SelectList(list,"Id","Name");
+            return View(myContext.Employees.Create());
         }
 
         [HttpPost]
@@ -38,9 +47,11 @@ namespace ASPNetMVC.Controllers
 
         public ActionResult Edit(int Id)
         {
+            List<Division> list = myContext.Divisions.ToList();
+            ViewBag.DivisionList = new SelectList(list, "Id", "Name");
             return View(myContext.Employees.Find(Id));
         }
-        
+
         [HttpPost]
         public ActionResult Edit(Employee employee)
         {
@@ -53,9 +64,9 @@ namespace ASPNetMVC.Controllers
         {
             return View(myContext.Employees.Find(Id));
         }
-        
+
         [HttpPost]
-        public ActionResult Delete(Employee employee, int Id)
+        public ActionResult Delete(int Id, Employee employee)
         {
             var delete = myContext.Employees.Find(Id);
             myContext.Employees.Remove(delete);

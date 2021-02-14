@@ -10,7 +10,7 @@
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-
+    
     <div class="form-horizontal">
         <h4>Employee</h4>
         <hr />
@@ -28,15 +28,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.BirthDay, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.BirthDay, new
-                {
-                    htmlAttributes = new
-                    {
-                        @class = "form-control",
-                    placeholder = "BirthDay",
-                        @readonly = "true"
-                    }
-                })
+                @Html.EditorFor(model => model.BirthDay, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.BirthDay, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -66,6 +58,14 @@
         </div>
 
         <div class="form-group">
+            @Html.LabelFor(model => model.Division.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.DivisionID, ViewBag.DivisionList as SelectList, "Select", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.DivisionID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Save" class="btn btn-default" />
             </div>
@@ -79,18 +79,4 @@
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
-    @Scripts.Render("~/bundles/jqueryui")
-    @Styles.Render("~/Content/cssjqryUi")
-
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $('input[type=datetime]').datepicker({
-                dateFormat: "dd/M/yy",
-                changeMonth: true,
-                changeYear: true,
-                yearRange: "-60:+0"
-            });
-
-        });
-    </script>
 }

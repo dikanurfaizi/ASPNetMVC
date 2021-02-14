@@ -7,7 +7,7 @@ using System.Web;
 
 namespace ASPNetMVC.Models
 {
-    [Table("Tb_Division")]
+    [Table("Tb_M_Division")]
     public class Division
     {
         [Key]

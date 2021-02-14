@@ -9,8 +9,9 @@ namespace ASPNetMVC.Context
 {
     public class MyContext : DbContext
     {
-        public MyContext() : base("ASPNetMVC") { }
-        public DbSet<Employee> Employees { get; set; }
+        public MyContext() : base("ASPNetMVC2") { }
         public DbSet<Division> Divisions { get; set; }
+        public DbSet<Employee> Employees { get; set; }
+        public DbSet<Account> Accounts { get; set; }
     }
 }

@@ -6,39 +6,27 @@ using System.Linq;
 using System.Web;
 
 namespace ASPNetMVC.Models
-{ 
+{
     [Table("Tb_M_Employee")]
     public class Employee
     {
         [Key]
-        public int Id
-        {
-            get; set;
-        }
-        
-        public string Name
-        {
-            get; set;
-        }
-        
-        public DateTime BirthDay
-        {
-            get; set;
-        }
-        
-        public string Address
-        {
-            get; set;
-        }
-        
-        public string Email
-        {
-            get; set;
-        }
+        public int Id { get; set; }
 
-        public string Phone
-        {
-            get; set;
-        }
+        public string Name { get; set; }
+
+        public DateTime BirthDay { get; set; }
+
+        public string Address { get; set; }
+
+        public string Email { get; set; }
+
+        public string Phone { get; set; }
+
+        public int DivisionID { get; set; }
+
+        public Division Division { get; set; }
+
+        public virtual Account Account { get; set; }
     }
 }
